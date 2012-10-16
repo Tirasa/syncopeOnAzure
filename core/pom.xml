@@ -84,7 +84,11 @@ under the License.
       <groupId>org.apache.openjpa</groupId>
       <artifactId>openjpa-persistence-jdbc</artifactId>
     </dependency>
-
+    <dependency>
+      <groupId>net.tirasa.openjpa-azure</groupId>
+      <artifactId>openjpa-azure</artifactId>
+    </dependency>
+      
     <dependency>
       <groupId>javax.validation</groupId>
       <artifactId>validation-api</artifactId>
@@ -97,6 +101,12 @@ under the License.
     <dependency>
       <groupId>org.codehaus.groovy</groupId>
       <artifactId>groovy-all</artifactId>
+    </dependency>
+    
+    <dependency>
+      <groupId>com.microsoft.sqlserver</groupId>
+      <artifactId>sqljdbc4</artifactId>
+      <version>4.0</version>
     </dependency>
 
     <!-- TEST -->
@@ -161,6 +171,25 @@ under the License.
     <plugins>
 
       <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>properties-maven-plugin</artifactId>
+        <version>1.0-alpha-2</version>
+        <executions>
+          <execution>
+            <phase>initialize</phase>
+            <goals>
+              <goal>read-project-properties</goal>
+            </goals>
+            <configuration>
+              <files>
+                <file>src/main/resources/persistence.properties</file>
+              </files>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+      
+      <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-dependency-plugin</artifactId>
         <inherited>true</inherited>
@@ -174,6 +203,16 @@ under the License.
           </execution>
         </executions>
       </plugin>
+            
+      <!--      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-war-plugin</artifactId>
+        <inherited>false</inherited>
+        <configuration>
+          <attachClasses>false</attachClasses>
+          <packagingExcludes>WEB-INF/lib/activiti*.jar</packagingExcludes>
+        </configuration>
+      </plugin>-->
             
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
@@ -206,13 +245,12 @@ under the License.
                 <unzip src="${project.build.directory}/${project.build.finalName}.war"
                        dest="${cargo.run.dir}">
                   <patternset>
-                    <exclude name="**/content.xml"/>
-                    <exclude name="**/persistence.properties"/>
+                    <!--<exclude name="**/content.xml"/>
+                    <exclude name="**/persistence.properties"/>-->
                     <exclude name="**/security.properties"/>
-                    <exclude name="**/workflow.properties" />
+                    <!--<exclude name="**/workflow.properties" />-->
                   </patternset>
                 </unzip>
-                <copy file="${project.build.directory}/test-classes/db.jsp" todir="${cargo.run.dir}"/>
                 <copy todir="${cargo.run.dir}/WEB-INF/classes" includeEmptyDirs="false">
                   <fileset dir="${project.build.directory}/test-classes"/>
                 </copy>
@@ -243,12 +281,7 @@ under the License.
         <inherited>true</inherited>
         <configuration>
           <container>
-            <dependencies>
-              <dependency>
-                <groupId>com.h2database</groupId>
-                <artifactId>h2</artifactId>
-              </dependency>
-            </dependencies>
+            <timeout>0</timeout>
           </container>
           <configuration>
             <type>standalone</type>
@@ -289,9 +322,6 @@ under the License.
             <goals>
               <goal>start</goal>
             </goals>
-            <configuration>
-              <wait>false</wait>
-            </configuration>
           </execution>
           <execution>
             <id>stop-container</id>
@@ -352,4 +382,27 @@ under the License.
       </testResource>
     </testResources>
   </build>
+  
+  <profiles>
+    <profile>
+      <id>embedded</id>
+      <properties>
+        <waitForCheck>true</waitForCheck>
+      </properties>
+      <build>
+        <defaultGoal>clean verify</defaultGoal>
+        <plugins>
+          <plugin>
+            <groupId>org.codehaus.cargo</groupId>
+            <artifactId>cargo-maven2-plugin</artifactId>
+            <inherited>true</inherited>
+            <configuration>
+              <wait>${waitForCheck}</wait>
+              <timeout>0</timeout>
+            </configuration>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+  </profiles>
 </project>

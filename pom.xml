@@ -30,6 +30,8 @@ under the License.
 
   <properties>
     <syncope.version>1.0.2-incubating</syncope.version>
+    <openjpa.version>2.3.0-SNAPSHOT</openjpa.version>
+    <openjpa-azure.version>0.2-SNAPSHOT</openjpa-azure.version>
   </properties>
 
   <name>Apache Syncope sample project</name>
@@ -40,6 +42,18 @@ under the License.
 
   <dependencyManagement>
     <dependencies>
+      <dependency>
+        <groupId>org.apache.openjpa</groupId>
+        <artifactId>openjpa-persistence-jdbc</artifactId>
+        <version>${openjpa.version}</version>
+      </dependency>
+      
+      <dependency>
+        <groupId>net.tirasa.openjpa-azure</groupId>
+        <artifactId>openjpa-azure</artifactId>
+        <version>${openjpa-azure.version}</version>
+      </dependency>
+      
       <dependency>
         <groupId>org.apache.syncope</groupId>
         <artifactId>syncope-client</artifactId>
@@ -138,7 +152,37 @@ under the License.
       </plugin>
     </plugins>
   </build>
+
+  <repositories>
+    <repository>
+      <id>apache.snapshots</id>
+      <name>Apache Snapshot Repository</name>
+      <url>http://repository.apache.org/snapshots</url>
+      <releases>
+        <enabled>false</enabled>
+      </releases>
+    </repository>
+    <repository>
+      <id>sonatype.snapshots</id>
+      <name>Sonatype Snapshot Repository</name>
+      <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
+      <releases>
+        <enabled>false</enabled>
+      </releases>
+    </repository>
+  </repositories>
     
+  <pluginRepositories>
+    <pluginRepository>
+      <id>apache.snapshots</id>
+      <name>Apache Snapshot Repository</name>
+      <url>http://repository.apache.org/snapshots</url>
+      <releases>
+        <enabled>false</enabled>
+      </releases>
+    </pluginRepository>
+  </pluginRepositories>
+      
   <modules>
     <module>core</module>
     <module>console</module>
