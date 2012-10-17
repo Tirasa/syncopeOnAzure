@@ -5,8 +5,7 @@ Practical implementation of official advices at Syncope [wiki](https://cwiki.apa
 
 This projects assumes that you have
  1. [Apache Maven 3.0](http://maven.apache.org) installed
- 1. a running JBoss instance, listening to port 8080
- 1. a MySQL datasource named <code>syncopeDataSource</code> referring to an empty db
+ 1. valid Windows Azure subscription
 
 #### clone ####
 
@@ -22,13 +21,14 @@ $ mvn clean package
 </pre>
 
 #### deploy ####
-
+There are many available options: the easiest is probably to [deploy Apache Tomcat](http://techyfreak.blogspot.it/2011/03/installing-tomcat-in-windows-azure.html)
+bundled with the following two web applications:
  1. <code>core/target/syncope.war</code>
  1. <code>console/target/syncope-console.war</code>
 
 ## Notes ##
  1. On 1.0.2-incubating
- 1. Not listenig on 8080? Just put the correct port in <code>console/src/main/resources/configuration.properties</code>, re-build and re-deploy
+ 1. Not listenig on localhost:8080? Just put the correct port in <code>console/src/main/resources/configuration.properties</code>, re-build and re-deploy
 
 ## Need more info? ##
-Just drop an [e-mail](mailto:syncope@tirasa.net).
+Just drop an [e-mail](mailto:openjpasqlazure@tirasa.net).
