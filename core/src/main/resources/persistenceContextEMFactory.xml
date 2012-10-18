@@ -45,10 +45,11 @@ under the License.
 <!--        <entry key="openjpa.jdbc.SchemaFactory" value="native(ForeignKeys=true)"/>
         <entry key="openjpa.jdbc.MappingDefaults" value="ForeignKeyDeleteAction=restrict, JoinForeignKeyDeleteAction=restrict"/>-->
                 
-<!--        <entry key="openjpa.DataCache" value="true" />
+        <entry key="openjpa.DataCache" value="true" />
         <entry key="openjpa.QueryCache" value="true"/>
-        <entry key="openjpa.RemoteCommitProvider" value="sjvm"/>-->
+        <entry key="openjpa.RemoteCommitProvider" value="sjvm"/>
         
+<entry key="openjpa.BrokerImpl" value="org.apache.openjpa.azure.kernel.AzureBroker"/>
         <entry key="openjpa.BrokerFactory" value="azure"/>
       </map>
     </property>
