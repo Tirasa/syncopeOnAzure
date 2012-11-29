@@ -136,9 +136,12 @@ public class SyncopeUser extends AbstractAttributable {
     private Integer failedLogins;
 
     /**
-     * Username/Login.
+     * Username/Login. They (MS) write: All unique and clustered indexes on the federated table must contain the
+     * federation column. The order in which the federation column appears in the index can be different from the key
+     * ordinal in the federation.
      */
-    @Column(unique = true)
+//    @Column(unique = true)
+    @Column
     @NotNull
     private String username;
 

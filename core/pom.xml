@@ -287,7 +287,7 @@ under the License.
             <type>standalone</type>
             <properties>
               <cargo.servlet.port>${cargo.servlet.port}</cargo.servlet.port>
-              <!--<cargo.jvmargs>-Xdebug -Xrunjdwp:transport=dt_socket,address=9009,server=y,suspend=n</cargo.jvmargs>-->
+<!--              <cargo.jvmargs>-Xdebug -Xrunjdwp:transport=dt_socket,address=9009,server=y,suspend=n</cargo.jvmargs>-->
             </properties>
           </configuration>
           <deployables>
