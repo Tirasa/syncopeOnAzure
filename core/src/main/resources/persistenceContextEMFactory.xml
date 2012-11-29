@@ -63,7 +63,7 @@ under the License.
         
         <entry key="openjpa.azure.UsersFed.RangeMappingType" value="BIGINT" />
         <entry key="openjpa.azure.UsersFed.Tables" 
-               value="SchemaMapping,Task,PropagationTask,Entitlement,UAttrValue,MAttrValue,RAttrValue,NotificationTask,SyncTask,SchedTask,ConnInstance,SyncopeUser,Membership,SyncopeRole,ExternalResource,USchema,UDerSchema,UVirSchema,RSchema,RDerSchema,RVirSchema,MSchema,MDerSchema,MVirSchema,Policy,user_search,user_search_attr,user_search_membership,user_search_resource" />
+               value="UAttr,RAttr,MAttr,UVirAttr,RVirAttr,MVirAttr,UDerAttr,RDerAttr,MDerAttr,SchemaMapping,Task,PropagationTask,Entitlement,UAttrValue,MAttrValue,RAttrValue,NotificationTask,SyncTask,SchedTask,ConnInstance,SyncopeUser,Membership,SyncopeRole,ExternalResource,USchema,UDerSchema,UVirSchema,RSchema,RDerSchema,RVirSchema,MSchema,MDerSchema,MVirSchema,Policy,user_search,user_search_attr,user_search_membership,user_search_resource" />
         <entry key="openjpa.azure.UsersFed.SyncopeUser.RangeMappingName" value="id" />
         
         <entry key="openjpa.slice.Names"   value="ROOT,UsersFed.0,UsersFed.1"/>
