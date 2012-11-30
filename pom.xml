@@ -37,7 +37,7 @@ under the License.
   <name>Apache Syncope sample project</name>
   <groupId>net.tirasa.syncope</groupId>
   <artifactId>azure</artifactId>
-  <version>0.3-SNAPSHOT</version>
+  <version>0.3</version>
   <packaging>pom</packaging>
 
   <dependencyManagement>
