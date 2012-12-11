@@ -47,11 +47,10 @@ under the License.
         <entry key="openjpa.AutoDetach" value="close, commit, nontx-read, rollback"/>
         
         <!-- http://openjpa.208410.n2.nabble.com/Slice-closing-EntityManager-on-named-queries-td6295930.html -->
-        <entry key="openjpa.jdbc.QuerySQLCache" value="false"/>
-        <entry key="openjpa.QueryCache" value="false"/>
+        <entry key="openjpa.QueryCache" value="true"/>
         <entry key="openjpa.DataCache" value="false" />
-        <entry key="openjpa.QueryCompilationCache" value="false" />
-<!--        <entry key="openjpa.RemoteCommitProvider" value="sjvm"/> -->
+        <entry key="openjpa.QueryCompilationCache" value="true" />
+        <entry key="openjpa.RemoteCommitProvider" value="sjvm"/> 
 
 <!--        <entry key="openjpa.jdbc.SchemaFactory" value="native(ForeignKeys=true)"/>
         <entry key="openjpa.jdbc.MappingDefaults" value="ForeignKeyDeleteAction=restrict, JoinForeignKeyDeleteAction=restrict"/>-->
