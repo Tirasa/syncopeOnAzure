@@ -82,18 +82,21 @@ under the License.
         <entry key="openjpa.slice.ROOT.ConnectionDriverName" 
                value="com.microsoft.sqlserver.jdbc.SQLServerDriver"/>
         <entry key="openjpa.slice.ROOT.jdbc.SynchronizeMappings" value="buildSchema(ForeignKeys=true,SchemaAction='add')"/>
+        <entry key="openjpa.slice.ROOT.ConnectionFactoryName" value="jdbc/root"/>
       
         <entry key="openjpa.slice.UsersFed.0.ConnectionURL" 
                value="jdbc:sqlserver://tp1qraooo4.database.windows.net:1433;database=syncope;encrypt=true;hostNameInCertificate=*.database.windows.net;loginTimeout=180"/>
         <entry key="openjpa.slice.UsersFed.0.ConnectionDriverName" 
                value="com.microsoft.sqlserver.jdbc.SQLServerDriver"/>
         <entry key="openjpa.slice.UsersFed.0.jdbc.SynchronizeMappings" value="buildSchema(ForeignKeys=true,SchemaAction='add')"/>
+        <entry key="openjpa.slice.UsersFed.0.ConnectionFactoryName" value="jdbc/userfed0"/>
       
         <entry key="openjpa.slice.UsersFed.1.ConnectionURL" 
                value="jdbc:sqlserver://tp1qraooo4.database.windows.net:1433;database=syncope;encrypt=true;hostNameInCertificate=*.database.windows.net;loginTimeout=180"/>
         <entry key="openjpa.slice.UsersFed.1.ConnectionDriverName" 
                value="com.microsoft.sqlserver.jdbc.SQLServerDriver"/>
         <entry key="openjpa.slice.UsersFed.1.jdbc.SynchronizeMappings" value="buildSchema(ForeignKeys=true,SchemaAction='add')"/>
+        <entry key="openjpa.slice.UsersFed.1.ConnectionFactoryName" value="jdbc/userfed1"/>
       
       </map>
     </property>

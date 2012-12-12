@@ -34,7 +34,6 @@ under the License.
   <packaging>war</packaging>
 
   <dependencies>
-
     <dependency>
       <groupId>org.apache.syncope</groupId>
       <artifactId>syncope-client</artifactId>
