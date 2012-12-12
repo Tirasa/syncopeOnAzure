@@ -48,7 +48,7 @@ under the License.
         
         <!-- http://openjpa.208410.n2.nabble.com/Slice-closing-EntityManager-on-named-queries-td6295930.html -->
         <entry key="openjpa.QueryCache" value="true"/>
-        <entry key="openjpa.DataCache" value="false" />
+        <entry key="openjpa.DataCache" value="true" />
         <entry key="openjpa.QueryCompilationCache" value="true" />
         <entry key="openjpa.RemoteCommitProvider" value="sjvm"/> 
 
