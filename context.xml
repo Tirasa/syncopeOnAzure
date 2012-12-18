@@ -19,7 +19,7 @@
 <Context>
 
     <!-- Default set of monitored resources -->
-    <WatchedResource>WEB-INF/web.xml</WatchedResource>
+  <WatchedResource>WEB-INF/web.xml</WatchedResource>
 
     <!-- Uncomment this to disable session persistence across Tomcat restarts -->
     <!--
@@ -32,40 +32,93 @@
     <Valve className="org.apache.catalina.valves.CometConnectionManagerValve" />
     -->
 
-    <Resource name="jdbc/root" auth="Container" 
-          type="javax.sql.DataSource"
-          factory="org.apache.tomcat.jdbc.pool.DataSourceFactory"
-          validationQuery="SELECT 1"
-          maxActive="50" 
-          maxIdle="50" 
-	  maxWait="10000"
-          username="tirasainteropt@tp1qraooo4"
-          password="1Password!"
-          driverClassName="com.microsoft.sqlserver.jdbc.SQLServerDriver"
-          url="jdbc:sqlserver://tp1qraooo4.database.windows.net:1433;database=syncope;encrypt=true;hostNameInCertificate=*.database.windows.net;loginTimeout=180"/>
+  <Resource name="jdbc/root" auth="Container" 
+            type="javax.sql.DataSource"
+            factory="org.apache.tomcat.jdbc.pool.DataSourceFactory"
+            validationQuery="SELECT 1"
+            maxActive="10" 
+            initialSize="2"
+            maxIdle="10"
+            maxAge="180000"
+            maxWait="10000"
+            username="tirasainteropt@tp1qraooo4"
+            password="1Password!"
+            driverClassName="com.microsoft.sqlserver.jdbc.SQLServerDriver"
+            url="jdbc:sqlserver://tp1qraooo4.database.windows.net:1433;database=syncope;selectMethod=cursor;sendStringParametersAsUnicode=false;loginTimeout=180"/>
 
-<Resource name="jdbc/userfed0" auth="Container"
-          type="javax.sql.DataSource"
-          factory="org.apache.tomcat.jdbc.pool.DataSourceFactory"
-          validationQuery="SELECT 1"
-          maxActive="50"
-          maxIdle="50"
-          maxWait="10000"
-          username="tirasainteropt@tp1qraooo4"
-          password="1Password!"
-          driverClassName="com.microsoft.sqlserver.jdbc.SQLServerDriver"
-          url="jdbc:sqlserver://tp1qraooo4.database.windows.net:1433;database=syncope;encrypt=true;hostNameInCertificate=*.database.windows.net;loginTimeout=180"/>
+  <Resource name="jdbc/userfed0" auth="Container"
+            type="javax.sql.DataSource"
+            factory="org.apache.tomcat.jdbc.pool.DataSourceFactory"
+            initSQL="USE FEDERATION UsersFed (range_id=0) WITH FILTERING=OFF, RESET"
+            validationQuery="SELECT 1"
+            maxActive="10"
+            initialSize="2"
+            maxIdle="10"
+            maxAge="180000"
+            maxWait="10000"
+            username="tirasainteropt@tp1qraooo4"
+            password="1Password!"
+            driverClassName="com.microsoft.sqlserver.jdbc.SQLServerDriver"
+            url="jdbc:sqlserver://tp1qraooo4.database.windows.net:1433;database=syncope;selectMethod=cursor;sendStringParametersAsUnicode=false;loginTimeout=180"/>
 
-<Resource name="jdbc/userfed1" auth="Container"
-          type="javax.sql.DataSource"
-          factory="org.apache.tomcat.jdbc.pool.DataSourceFactory"
-          validationQuery="SELECT 1"
-          maxActive="50"
-          maxIdle="50"
-          maxWait="10000"
-          username="tirasainteropt@tp1qraooo4"
-          password="1Password!"
-          driverClassName="com.microsoft.sqlserver.jdbc.SQLServerDriver"
-          url="jdbc:sqlserver://tp1qraooo4.database.windows.net:1433;database=syncope;encrypt=true;hostNameInCertificate=*.database.windows.net;loginTimeout=180"/>
+  <Resource name="jdbc/userfed1" auth="Container"
+            type="javax.sql.DataSource"
+            factory="org.apache.tomcat.jdbc.pool.DataSourceFactory"
+            initSQL="USE FEDERATION UsersFed (range_id=1000) WITH FILTERING=OFF, RESET"
+            validationQuery="SELECT 1"
+            maxActive="10"
+            initialSize="2"
+            maxIdle="10"
+            maxAge="180000"
+            maxWait="10000"
+            username="tirasainteropt@tp1qraooo4"
+            password="1Password!"
+            driverClassName="com.microsoft.sqlserver.jdbc.SQLServerDriver"
+            url="jdbc:sqlserver://tp1qraooo4.database.windows.net:1433;database=syncope;selectMethod=cursor;sendStringParametersAsUnicode=false;loginTimeout=180"/>
+
+  <Resource name="jdbc/userfed2" auth="Container"
+            type="javax.sql.DataSource"
+            factory="org.apache.tomcat.jdbc.pool.DataSourceFactory"
+            initSQL="USE FEDERATION UsersFed (range_id=2000) WITH FILTERING=OFF, RESET"
+            validationQuery="SELECT 1"
+            maxActive="10"
+            initialSize="2"
+            maxIdle="10"
+            maxAge="180000"
+            maxWait="10000"
+            username="tirasainteropt@tp1qraooo4"
+            password="1Password!"
+            driverClassName="com.microsoft.sqlserver.jdbc.SQLServerDriver"
+            url="jdbc:sqlserver://tp1qraooo4.database.windows.net:1433;database=syncope;selectMethod=cursor;sendStringParametersAsUnicode=false;loginTimeout=180"/>
+
+  <Resource name="jdbc/userfed3" auth="Container"
+            type="javax.sql.DataSource"
+            factory="org.apache.tomcat.jdbc.pool.DataSourceFactory"
+            initSQL="USE FEDERATION UsersFed (range_id=3000) WITH FILTERING=OFF, RESET"
+            validationQuery="SELECT 1"
+            maxActive="10"
+            initialSize="2"
+            maxIdle="10"
+            maxAge="180000"
+            maxWait="10000"
+            username="tirasainteropt@tp1qraooo4"
+            password="1Password!"
+            driverClassName="com.microsoft.sqlserver.jdbc.SQLServerDriver"
+            url="jdbc:sqlserver://tp1qraooo4.database.windows.net:1433;database=syncope;selectMethod=cursor;sendStringParametersAsUnicode=false;loginTimeout=180"/>
+
+  <Resource name="jdbc/userfed4" auth="Container"
+            type="javax.sql.DataSource"
+            factory="org.apache.tomcat.jdbc.pool.DataSourceFactory"
+            initSQL="USE FEDERATION UsersFed (range_id=4000) WITH FILTERING=OFF, RESET"
+            validationQuery="SELECT 1"
+            maxActive="10"
+            initialSize="2"
+            maxIdle="10"
+            maxAge="180000"
+            maxWait="10000"
+            username="tirasainteropt@tp1qraooo4"
+            password="1Password!"
+            driverClassName="com.microsoft.sqlserver.jdbc.SQLServerDriver"
+            url="jdbc:sqlserver://tp1qraooo4.database.windows.net:1433;database=syncope;selectMethod=cursor;sendStringParametersAsUnicode=false;loginTimeout=180"/>
 
 </Context>
