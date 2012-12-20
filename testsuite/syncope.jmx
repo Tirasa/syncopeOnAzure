@@ -15,10 +15,10 @@
         <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
         <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
           <boolProp name="LoopController.continue_forever">false</boolProp>
-          <stringProp name="LoopController.loops">2000</stringProp>
+          <stringProp name="LoopController.loops">4600</stringProp>
         </elementProp>
-        <stringProp name="ThreadGroup.num_threads">3</stringProp>
-        <stringProp name="ThreadGroup.ramp_time">120</stringProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
         <longProp name="ThreadGroup.start_time">1354261537000</longProp>
         <longProp name="ThreadGroup.end_time">1354261537000</longProp>
         <boolProp name="ThreadGroup.scheduler">false</boolProp>
@@ -26,7 +26,7 @@
         <stringProp name="ThreadGroup.delay"></stringProp>
       </ThreadGroup>
       <hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="User Create" enabled="true">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="User Create A" enabled="true">
           <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
             <collectionProp name="Arguments.arguments">
@@ -34,20 +34,158 @@
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value">{&#xd;
   &quot;id&quot;: &quot;0&quot;,&#xd;
-  &quot;username&quot;: &quot;myusername.${__counter(TRUE)}.${__threadNum()}&quot;,&#xd;
+  &quot;username&quot;: &quot;cnLoop${__intSum(${__counter(TRUE)},404)}thread${__threadNum()}A&quot;,&#xd;
   &quot;password&quot;: &quot;password123&quot;,&#xd;
   &quot;attributes&quot; : [&#xd;
                 { &#xd;
                         &quot;schema&quot;: &quot;email&quot;, &#xd;
-                        &quot;values&quot;: [&quot;example1@example.com&quot;]&#xd;
+                        &quot;values&quot;: [&quot;eLoop${__intSum(${__counter(TRUE)},404)}thread${__threadNum()}@example.com&quot;]&#xd;
                 },&#xd;
                 { &#xd;
                         &quot;schema&quot;: &quot;surname&quot;, &#xd;
-                        &quot;values&quot;: [&quot;My Surname&quot;]&#xd;
+                        &quot;values&quot;: [&quot;snLoop${__intSum(${__counter(TRUE)},404)}thread${__threadNum()}&quot;]&#xd;
                 },&#xd;
                 { &#xd;
                         &quot;schema&quot;: &quot;firstname&quot;, &#xd;
-                        &quot;values&quot;: [&quot;My Firstname&quot;]&#xd;
+                        &quot;values&quot;: [&quot;gnLoop${__intSum(${__counter(TRUE)},404)}thread${__threadNum()}&quot;]&#xd;
+                }&#xd;
+        ]&#xd;
+ }</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">syncope.cloudapp.net</stringProp>
+          <stringProp name="HTTPSampler.port">80</stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="HTTPSampler.protocol">http</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/syncope/rest/user/create.json</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">false</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.implementation">HttpClient4</stringProp>
+          <boolProp name="HTTPSampler.monitor">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree/>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="User Create B" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&#xd;
+  &quot;id&quot;: &quot;0&quot;,&#xd;
+  &quot;username&quot;: &quot;cnLoop${__intSum(${__counter(TRUE)},404)}thread${__threadNum()}B&quot;,&#xd;
+  &quot;password&quot;: &quot;password123&quot;,&#xd;
+  &quot;attributes&quot; : [&#xd;
+                { &#xd;
+                        &quot;schema&quot;: &quot;email&quot;, &#xd;
+                        &quot;values&quot;: [&quot;eLoop${__intSum(${__counter(TRUE)},404)}thread${__threadNum()}B@example.com&quot;]&#xd;
+                },&#xd;
+                { &#xd;
+                        &quot;schema&quot;: &quot;surname&quot;, &#xd;
+                        &quot;values&quot;: [&quot;snLoop${__intSum(${__counter(TRUE)},404)}thread${__threadNum()}B&quot;]&#xd;
+                },&#xd;
+                { &#xd;
+                        &quot;schema&quot;: &quot;firstname&quot;, &#xd;
+                        &quot;values&quot;: [&quot;gnLoop${__intSum(${__counter(TRUE)},404)}thread${__threadNum()}B&quot;]&#xd;
+                }&#xd;
+        ]&#xd;
+ }</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">syncope.cloudapp.net</stringProp>
+          <stringProp name="HTTPSampler.port">80</stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="HTTPSampler.protocol">http</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/syncope/rest/user/create.json</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">false</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.implementation">HttpClient4</stringProp>
+          <boolProp name="HTTPSampler.monitor">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree/>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="User Create C" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&#xd;
+  &quot;id&quot;: &quot;0&quot;,&#xd;
+  &quot;username&quot;: &quot;cnLoop${__intSum(${__counter(TRUE)},404)}thread${__threadNum()}C&quot;,&#xd;
+  &quot;password&quot;: &quot;password123&quot;,&#xd;
+  &quot;attributes&quot; : [&#xd;
+                { &#xd;
+                        &quot;schema&quot;: &quot;email&quot;, &#xd;
+                        &quot;values&quot;: [&quot;eLoop${__intSum(${__counter(TRUE)},404)}thread${__threadNum()}C@example.com&quot;]&#xd;
+                },&#xd;
+                { &#xd;
+                        &quot;schema&quot;: &quot;surname&quot;, &#xd;
+                        &quot;values&quot;: [&quot;snLoop${__intSum(${__counter(TRUE)},404)}thread${__threadNum()}C&quot;]&#xd;
+                },&#xd;
+                { &#xd;
+                        &quot;schema&quot;: &quot;firstname&quot;, &#xd;
+                        &quot;values&quot;: [&quot;gnLoop${__intSum(${__counter(TRUE)},404)}thread${__threadNum()}C&quot;]&#xd;
+                }&#xd;
+        ]&#xd;
+ }</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">syncope.cloudapp.net</stringProp>
+          <stringProp name="HTTPSampler.port">80</stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="HTTPSampler.protocol">http</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/syncope/rest/user/create.json</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">false</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.implementation">HttpClient4</stringProp>
+          <boolProp name="HTTPSampler.monitor">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree/>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="User Create D" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&#xd;
+  &quot;id&quot;: &quot;0&quot;,&#xd;
+  &quot;username&quot;: &quot;cnLoop${__intSum(${__counter(TRUE)},404)}thread${__threadNum()}D&quot;,&#xd;
+  &quot;password&quot;: &quot;password123&quot;,&#xd;
+  &quot;attributes&quot; : [&#xd;
+                { &#xd;
+                        &quot;schema&quot;: &quot;email&quot;, &#xd;
+                        &quot;values&quot;: [&quot;eLoop${__intSum(${__counter(TRUE)},404)}thread${__threadNum()}D@example.com&quot;]&#xd;
+                },&#xd;
+                { &#xd;
+                        &quot;schema&quot;: &quot;surname&quot;, &#xd;
+                        &quot;values&quot;: [&quot;snLoop${__intSum(${__counter(TRUE)},404)}thread${__threadNum()}D&quot;]&#xd;
+                },&#xd;
+                { &#xd;
+                        &quot;schema&quot;: &quot;firstname&quot;, &#xd;
+                        &quot;values&quot;: [&quot;gnLoop${__intSum(${__counter(TRUE)},404)}thread${__threadNum()}D&quot;]&#xd;
                 }&#xd;
         ]&#xd;
  }</stringProp>
@@ -83,13 +221,13 @@
               </elementProp>
             </collectionProp>
           </elementProp>
-          <stringProp name="HTTPSampler.domain">localhost</stringProp>
-          <stringProp name="HTTPSampler.port">8080</stringProp>
+          <stringProp name="HTTPSampler.domain">syncope.cloudapp.net</stringProp>
+          <stringProp name="HTTPSampler.port">80</stringProp>
           <stringProp name="HTTPSampler.connect_timeout"></stringProp>
           <stringProp name="HTTPSampler.response_timeout"></stringProp>
           <stringProp name="HTTPSampler.protocol">http</stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-          <stringProp name="HTTPSampler.path">/syncope/rest/user/suspendByUsername/myusername.${__counter(TRUE)}..${__threadNum()}.json</stringProp>
+          <stringProp name="HTTPSampler.path">/syncope/rest/user/suspendByUsername/myusername.${__counter(TRUE)}.${__threadNum()}.json</stringProp>
           <stringProp name="HTTPSampler.method">GET</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">false</boolProp>
           <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
@@ -104,13 +242,13 @@
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
             <collectionProp name="Arguments.arguments"/>
           </elementProp>
-          <stringProp name="HTTPSampler.domain">localhost</stringProp>
-          <stringProp name="HTTPSampler.port">8080</stringProp>
+          <stringProp name="HTTPSampler.domain">syncope.cloudapp.net</stringProp>
+          <stringProp name="HTTPSampler.port">80</stringProp>
           <stringProp name="HTTPSampler.connect_timeout"></stringProp>
           <stringProp name="HTTPSampler.response_timeout"></stringProp>
           <stringProp name="HTTPSampler.protocol">http</stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-          <stringProp name="HTTPSampler.path">/syncope/rest/user/readByUsername/myusername.${__counter(TRUE)}..${__threadNum()}.json</stringProp>
+          <stringProp name="HTTPSampler.path">/syncope/rest/user/readByUsername/cnLoop${__Random(1,5000)}thread${__Random(1,1)}${__RandomString(1,ABCD,)}.json</stringProp>
           <stringProp name="HTTPSampler.method">GET</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">false</boolProp>
           <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
@@ -125,8 +263,8 @@
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
             <collectionProp name="Arguments.arguments"/>
           </elementProp>
-          <stringProp name="HTTPSampler.domain">localhost</stringProp>
-          <stringProp name="HTTPSampler.port">8080</stringProp>
+          <stringProp name="HTTPSampler.domain">syncope.cloudapp.net</stringProp>
+          <stringProp name="HTTPSampler.port">80</stringProp>
           <stringProp name="HTTPSampler.connect_timeout"></stringProp>
           <stringProp name="HTTPSampler.response_timeout"></stringProp>
           <stringProp name="HTTPSampler.protocol">http</stringProp>
