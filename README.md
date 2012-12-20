@@ -6,7 +6,7 @@ Practical implementation of official advices at Syncope [wiki](https://cwiki.apa
 This projects assumes that you have
  1. [Apache Maven 3.0](http://maven.apache.org) installed
  1. valid Windows Azure subscription
- 1. a federated database called syncope with a federation UsersFed with two members
+ 1. a federated database called syncope with a federation UsersFed with five members.
 
 #### clone ####
 
@@ -31,6 +31,9 @@ Please, consider that each slice refers a specific datasource:
  1. slice ROOT uses jdbc/root datasource;
  1. slice UsersFed.0 uses jdbc/userfed0;
  1. slice UsersFed.1 uses jdbc/userfed1.
+ 1. slice UsersFed.2 uses jdbc/userfed2.
+ 1. slice UsersFed.3 uses jdbc/userfed3.
+ 1. slice UsersFed.4 uses jdbc/userfed4.
 You have to take care to make available these datasources to the web application syncope.
 In case you are using Apache Tomcat as container you can copy the provided context.xml file into <TOMCAT_HOME>/conf.
 
