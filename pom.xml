@@ -31,13 +31,13 @@ under the License.
   <properties>
     <syncope.version>1.0.2-incubating</syncope.version>
     <openjpa.version>2.3.0-SNAPSHOT</openjpa.version>
-    <openjpa-azure.version>0.4-SNAPSHOT</openjpa-azure.version>
+    <openjpa-azure.version>0.4</openjpa-azure.version>
   </properties>
 
   <name>Apache Syncope sample project</name>
   <groupId>net.tirasa.syncope</groupId>
   <artifactId>azure</artifactId>
-  <version>0.3-SNAPSHOT</version>
+  <version>0.4-SNAPSHOT</version>
   <packaging>pom</packaging>
 
   <dependencyManagement>

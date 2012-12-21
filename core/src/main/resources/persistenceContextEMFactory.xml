@@ -45,6 +45,7 @@ under the License.
         
         <entry key="openjpa.QueryCache" value="true"/>
         <entry key="openjpa.DataCache" value="true" />
+        <entry key="openjpa.QueryCompilationCache" value="true" />
         <entry key="openjpa.RemoteCommitProvider" value="sjvm"/> 
         
         <entry key="openjpa.BrokerFactory" value="azure"/>
